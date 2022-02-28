@@ -1,0 +1,25 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_002
+      author: Acks Eduardo
+      preConditions:
+        tableExists:
+          tableName: client
+      changes:
+        - sql:
+            sql: INSERT INTO aeon_db.client (client_id, name, cpf, email, birth_date, created_date, updated_date)
+              VALUES
+                ('423020d4-3059-4ef9-b1d4-2c28dc94fcae','Larissa Amorim','86394841552','larissa@gmail.com','1995-10-22 00:00:00',current_timestamp,null),
+                ('a117bc31-a3d5-46a7-b3ab-f60c5e4db6e6','Aques Soares','83113467632','aques@gmail.com','1978-10-22 00:00:00',current_timestamp,null),
+                ('4b4d23a0-b245-46c9-b7c6-b99de2bccbbc','Pedro Roma','93714681574','pedro@gmail.com','1997-10-22 00:00:00',current_timestamp,null),
+                ('63d2e9eb-39c4-4cbc-8f2f-608c6b10dcd4','Katia Silene','61555777066','katia@gmail.com','1987-10-22 00:00:00',current_timestamp,null),
+                ('7e04fd76-5247-4133-99c7-c6f99e85dae8','Jeferson Fraga','41857278879','jeferson@gmail.com','1999-10-22 00:00:00',current_timestamp,null),
+                ('283c74b9-50b0-43cd-8860-f42f9ae4ca7d','Andreza Fraga','34515519930','andreza@gmail.com','1999-10-22 00:00:00',current_timestamp,null),
+                ('35e66375-235d-4edf-a075-93c2ea772ce0','Acks Eduardo','24037437554','acks@gmail.com','1991-10-22 00:00:00',current_timestamp,null),
+                ('1e9a8b1f-0025-41d6-91d5-eb6f2e45845c','Izabella Assis','95920366320','iza@gmail.com','2000-10-22 00:00:00',current_timestamp,null),
+                ('d493c123-6097-4df4-8b28-4dc792576d7a','Haddash Paim','31122787049','Haddash@gmail.com','2003-10-22 00:00:00',current_timestamp,null),
+                ('e0e73cd9-75ad-4f04-b2ab-3baa47309d64','Andreza Mercia','18362038292','dreza@gmail.com','2001-10-22 00:00:00',current_timestamp,null),
+                ('5473e701-38c9-4570-80aa-c38546c2a81e','Adan Nascimento','01137489570','adan@gmail.com','1979-10-22 00:00:00',current_timestamp,null),
+                ('3331b508-e03f-4b13-9f48-16d994fe95cf','Reinan Oliveira','56384456338','reinan@gmail.com','1995-10-22 00:00:00',current_timestamp,null),
+                ('81bb7d94-6822-4fa4-a403-964b93abc9a4','Daniele Paim','19625706577','dani@gmail.com','1989-10-22 00:00:00',current_timestamp,null),
+                ('e109a641-2d07-4a27-88bb-3658283f4de0','Talita Amorim','37557251504','taliamorim@gmail.com','1991-12-22 00:00:00',current_timestamp,null);

@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: V1_001
+      author: Acks Eduardo
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: client_id
+                  type: CHAR(36)
+                  constraints:
+                    unique: true
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cpf
+                  type: VARCHAR(11)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birth_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: true
+        - addUniqueConstraint:
+            columnNames: cpf
+            constraintName: client_cpf_unique
+            tableName: client

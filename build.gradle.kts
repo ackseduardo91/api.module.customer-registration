@@ -24,9 +24,17 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.liquibase:liquibase-core")
+	implementation("commons-io:commons-io:2.6")
+	implementation("com.google.code.gson:gson:2.9.0")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	runtimeOnly("org.postgresql:postgresql")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	runtimeOnly ("mysql:mysql-connector-java")
+
+	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
+		exclude(module = "mockito-core")
+	}
+	testImplementation("io.mockk:mockk:1.9.3")
 }
 
 tasks.withType<KotlinCompile> {
