@@ -1,5 +1,6 @@
 package com.aeon.api.module.customerregistration.models.dtos
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDate
 import java.util.*
@@ -23,6 +24,7 @@ data class CustomerSaveDTO(
 
     @JsonProperty("birthDate")
     @field:NotNull(message = "birthDate.required")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     val birthDate: LocalDate,
 )
 
