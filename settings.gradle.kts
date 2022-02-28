@@ -1,1 +1,1 @@
-rootProject.name = "api.module.customer-registration"
+rootProject.name = "cad_cli"
