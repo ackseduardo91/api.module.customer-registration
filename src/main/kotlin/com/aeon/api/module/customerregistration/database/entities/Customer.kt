@@ -1,22 +1,19 @@
 package com.aeon.api.module.customerregistration.database.entities
 
 import com.aeon.api.module.customerregistration.models.dtos.CustomerSaveDTO
-import org.springframework.data.annotation.CreatedDate
-import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.util.*
 import javax.persistence.*
 
 @Entity
 @EntityListeners(AuditingEntityListener::class)
-@Table(name = "client")
+@Table(name = "customer")
 data class Customer (
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "client_id", nullable = false)
-    val customerId: UUID? = null,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id", nullable = false)
+    var customerId: Long? = null,
 
     @Column(name = "name")
     val name: String,
@@ -31,20 +28,22 @@ data class Customer (
     val birthDate: LocalDate,
 ){
 
-    @CreatedDate
-    @Column(name = "created_date", updatable = false)
-    lateinit var createdDate: LocalDateTime
+    @Column(name = "created_date")
+    var createdDate: LocalDateTime? = null
 
-    @LastModifiedDate
     @Column(name = "updated_date")
-    lateinit var updatedDate: LocalDateTime
+    var updatedDate: LocalDateTime? = null
 
-    constructor(clientSaveDto: CustomerSaveDTO): this(
+    constructor(clientSaveDto: CustomerSaveDTO,
+                createdDate: LocalDateTime?,
+                updatedDate: LocalDateTime?): this(
         customerId = clientSaveDto.customerId,
         name = clientSaveDto.name,
         cpf = clientSaveDto.cpf,
         email = clientSaveDto.email,
         birthDate = clientSaveDto.birthDate,
-    )
-
+    ){
+        this.createdDate = createdDate?.let { it }
+        this.updatedDate = updatedDate?.let { it }
+    }
 }

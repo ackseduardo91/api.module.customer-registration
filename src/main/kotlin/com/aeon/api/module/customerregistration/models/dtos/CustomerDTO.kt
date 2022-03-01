@@ -9,7 +9,7 @@ import javax.validation.constraints.Max
 
 data class CustomerDTO(
     @JsonProperty("customerId")
-    val customerId: UUID? = null,
+    val customerId: Long? = null,
 
     @JsonProperty("name")
     val name: String,

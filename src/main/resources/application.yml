@@ -20,6 +20,7 @@ spring:
         show_sql: true
         format_sql: true
         dll-auto: validate
+        use-new-id-generator-mappings: false
       generate-ddl: false
   liquibase:
     changeLog: classpath:db/changelog/db.changelog-master.yml
