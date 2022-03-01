@@ -26,6 +26,10 @@ dependencies {
 	implementation("org.liquibase:liquibase-core")
 	implementation("commons-io:commons-io:2.6")
 	implementation("com.google.code.gson:gson:2.9.0")
+	implementation("javax.validation:validation-api:2.0.1.Final")
+	implementation("org.hibernate.validator:hibernate-validator:7.0.1.Final")
+
+
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly ("mysql:mysql-connector-java")

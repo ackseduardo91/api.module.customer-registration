@@ -1,7 +1,6 @@
 package com.aeon.api.module.customerregistration.modules.customer.service
 
 import com.aeon.api.module.customerregistration.database.entities.Customer
-import com.aeon.api.module.customerregistration.models.dtos.CustomerDTO
 import com.aeon.api.module.customerregistration.models.dtos.CustomerSaveDTO
 import com.aeon.api.module.customerregistration.models.dtos.ResponseApiDTO
 import com.aeon.api.module.customerregistration.models.error.CustomGlobalExceptionHandler
@@ -82,7 +81,7 @@ class CustomerServiceImpl(
 
     override fun deleteCustomer(customerId: Long): ResponseEntity<Any> {
         try {
-            val customerDelete = customerProvider.searchCustomerById(customerId)
+            val customer = customerProvider.searchCustomerById(customerId)
                 ?: return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
                     CustomGlobalExceptionHandler().customHandleNotFound("Customer Not Found")
                 )
@@ -90,7 +89,7 @@ class CustomerServiceImpl(
                 ResponseApiDTO(
                     LocalDateTime.now(),
                     HttpStatus.OK.toString(),
-                    customerProvider.deleteCustomer(customerDelete),
+                    customerProvider.deleteCustomer(customer),
                     null
                 )
             )

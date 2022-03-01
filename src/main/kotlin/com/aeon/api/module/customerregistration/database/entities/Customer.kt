@@ -43,7 +43,7 @@ data class Customer (
         email = clientSaveDto.email,
         birthDate = clientSaveDto.birthDate,
     ){
-        this.createdDate = createdDate?.let { it }
-        this.updatedDate = updatedDate?.let { it }
+        this.createdDate = createdDate
+        this.updatedDate = updatedDate
     }
 }
